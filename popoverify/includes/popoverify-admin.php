@@ -49,9 +49,9 @@ if (!function_exists('popoverify_render_options_page')) {
         }
 
         echo '<div class="wrap">'
-        . '<h1>Popoverify</h1>'
-        . '<p style="font-size:16px;">Your inline wiki and an easy way how to increase user experiance of your website. <a href="https://www.popoverify.com/ref/1000" target="_blank">Popoverify</a> allows you to <strong>connect glossary of terms directly to your website</strong> as contextual help on mouse over or on touch effect.</p>'
-        . '<p style="font-size:16px;">Don\'t have a Popoverify account yet? <strong><a href="https://www.popoverify.com/ref/1000" target="_blank">Create a new account</a> and try it for FREE</strong>.</p>'
+        . '<h1><a href="https://www.popoverify.com/ref/1000" target="_blank"><img src="' . plugins_url('popoverify/public/images/logo.png') . '" style="max-width:300px;" /></a></h1>'
+        . '<p style="font-size:16px;">Your inline wiki and an easy way how to increase user experiance of your website. Popoverify allows you to <strong>connect glossary of terms directly to your website</strong> as contextual help on mouse over or on touch effect.</p>'
+        . '<p style="font-size:16px;">Don\'t have a Popoverify account yet? <a href="https://www.popoverify.com/ref/1000" target="_blank"><strong>Create new account</strong></a> and <strong>try it for FREE</strong>.</p>'
         . '<form method="post" action="options.php">';
 
         settings_fields('popoverify-settings');
@@ -76,6 +76,7 @@ if (!function_exists('popoverify_render_options_page')) {
         . '<option value="as"' . ($zone == 'as' ? ' selected="selected"' : '') . '>Asia</option>'
         . '<option value="eu"' . ($zone == 'eu' ? ' selected="selected"' : '') . '>Europe</option>'
         . '<option value="na"' . ($zone == 'na' ? ' selected="selected"' : '') . '>North America</option>'
+        . '<option value="oc"' . ($zone == 'oc' ? ' selected="selected"' : '') . '>Oceania</option>'
         . '<option value="sa"' . ($zone == 'sa' ? ' selected="selected"' : '') . '>South America</option>'
         . '</select>'
         . '<p class="description">The continent on which it is located server that is hosting your website.</p>'
@@ -83,17 +84,17 @@ if (!function_exists('popoverify_render_options_page')) {
         . '</tr>'
         . '<tr valign="top">'
         . '<th scope="row"><label for="popoverify_posts_detail">Parse post detail</label></th>'
-        . '<td>'
-        . '<label><input type="checkbox" id="popoverify_posts_detail" name="popoverify_posts_detail" value="1"' . (get_option('popoverify_posts_detail') == '1' ? ' checked="checked"' : '') . ' /> '
+        . '<td><label>'
+        . '<input type="checkbox" id="popoverify_posts_detail" name="popoverify_posts_detail" value="1"' . (get_option('popoverify_posts_detail') == '1' ? ' checked="checked"' : '') . ' /> '
         . '<span class="description">recommended</span>'
-        . '</td>'
+        . '</label></td>'
         . '</tr>'
         . '<tr valign="top">'
         . '<th scope="row"><label for="popoverify_categories">Parse category description</label></th>'
-        . '<td>'
+        . '<td><label>'
         . '<input type="checkbox" id="popoverify_categories" name="popoverify_categories" value="1"' . (get_option('popoverify_categories') == '1' ? ' checked="checked"' : '') . ' /> '
         . '<span class="description">recommended</span>'
-        . '</td>'
+        . '</label></td>'
         . '</tr>'
         . '<tr valign="top">'
         . '<th scope="row"><label for="popoverify_home">Parse posts in homepage</label></th>'
@@ -113,7 +114,7 @@ if (!function_exists('popoverify_render_options_page')) {
         . '<input type="checkbox" id="popoverify_pages" name="popoverify_pages" value="1"' . (get_option('popoverify_pages') == '1' ? ' checked="checked"' : '') . ' />'
         . '</td>'
         . '</tr>'
-        . '</table>';
+        . '</table>' . PHP_EOL;
 
         submit_button();
 
