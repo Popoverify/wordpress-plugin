@@ -97,7 +97,7 @@ if (!function_exists('popoverify_after_wp')) {
         } elseif (is_single()) {
             if ($is_woo && function_exists('is_product') && is_product()) {
                 if (get_option('popoverify_woo_product')) {
-                    add_action('woocommerce_before_single_product_summary', 'popoverify_print_div_start', 50);
+                    add_action('woocommerce_after_single_product_summary', 'popoverify_print_div_start', 9);
                     add_action('woocommerce_after_single_product_summary', 'popoverify_print_div_end', 11);
                 }
             } elseif (get_option('popoverify_posts_detail')) {
