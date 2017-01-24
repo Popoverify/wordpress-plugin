@@ -12,7 +12,7 @@ if (!function_exists('popoverify_footer_script')) {
         if ($app = get_option('popoverify_app')) {
             echo '<script type="text/javascript">'
             . 'var _ppfy=_ppfy||{};_ppfy.app="' . $app . '";_ppfy.zone="' . get_option('popoverify_zone', 'eu') . '";'
-            . '(function(d){var l=d.createElement("script");l.type="text/javascript";l.async=true;l.src="https://popoverify.dev/static/provider/v1.js";var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(l,s);})(document);'
+            . '(function(d){var l=d.createElement("script");l.type="text/javascript";l.async=true;l.src="https://cdn.popoverify.com/provider/v1.js";var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(l,s);})(document);'
             . '</script>' . PHP_EOL;
         }
     }

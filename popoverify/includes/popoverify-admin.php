@@ -4,7 +4,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-// adds submenu to Settings menu
+// adds submenu to settings menu
 if (!function_exists('popoverify_add_options_page')) {
 
     function popoverify_add_options_page()
@@ -12,6 +12,17 @@ if (!function_exists('popoverify_add_options_page')) {
         add_options_page('Popoverify', 'Popoverify', 'manage_options', 'popoverify', 'popoverify_render_options_page');
     }
     add_action('admin_menu', 'popoverify_add_options_page');
+}
+
+// adds settings link to plugin page
+if (!function_exists('popoverify_add_settings_link')) {
+
+    function popoverify_add_settings_link($links)
+    {
+        $my_links = array('<a href="' . admin_url('options-general.php?page=popoverify') . '">Settings</a>');
+        return array_merge($my_links, $links);
+    }
+    add_filter('plugin_action_links_' . POPOVERIFY_PLUGIN_BASE_NAME, 'popoverify_add_settings_link');
 }
 
 // registers plugin settings
