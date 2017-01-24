@@ -13,7 +13,23 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('POPOVERIFY_PLUGIN_BASE_NAME', plugin_basename(__FILE__));
+// define plugin base name
+if (!defined('POPOVERIFY_PLUGIN_BASE_NAME')) {
+    define('POPOVERIFY_PLUGIN_BASE_NAME', plugin_basename(__FILE__));
+}
+
+// after all active plugins are loaded
+if (!function_exists('popoverify_after_plugins_loaded')) {
+
+    function popoverify_after_plugins_loaded()
+    {
+        if (!defined('POPOVERIFY_PLUGIN_WOOCOMMERCE')) {
+            $plugins = get_option('active_plugins', array());
+            define('POPOVERIFY_PLUGIN_WOOCOMMERCE', in_array('woocommerce/woocommerce.php', $plugins));
+        }
+    }
+    add_action('plugins_loaded', 'popoverify_after_plugins_loaded');
+}
 
 // include admin functions
 if (is_admin()) {

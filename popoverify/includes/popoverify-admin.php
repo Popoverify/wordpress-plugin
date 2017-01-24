@@ -37,6 +37,8 @@ if (!function_exists('popoverify_register_settings')) {
         register_setting('popoverify-settings', 'popoverify_posts_detail', 'intval');
         register_setting('popoverify-settings', 'popoverify_categories', 'intval');
         register_setting('popoverify-settings', 'popoverify_pages', 'intval');
+        register_setting('popoverify-settings', 'popoverify_woo_product', 'intval');
+        register_setting('popoverify-settings', 'popoverify_woo_category', 'intval');
     }
     add_action('admin_init', 'popoverify_register_settings');
 }
@@ -124,8 +126,26 @@ if (!function_exists('popoverify_render_options_page')) {
         . '<td>'
         . '<input type="checkbox" id="popoverify_pages" name="popoverify_pages" value="1"' . (get_option('popoverify_pages') == '1' ? ' checked="checked"' : '') . ' />'
         . '</td>'
-        . '</tr>'
-        . '</table>' . PHP_EOL;
+        . '</tr>';
+
+        if (defined('POPOVERIFY_PLUGIN_WOOCOMMERCE') && POPOVERIFY_PLUGIN_WOOCOMMERCE == true) {
+            echo '<tr valign="top">'
+            . '<th scope="row"><label for="popoverify_woo_product">Parse Woo product detail</label></th>'
+            . '<td><label>'
+            . '<input type="checkbox" id="popoverify_woo_product" name="popoverify_woo_product" value="1"' . (get_option('popoverify_woo_product') == '1' ? ' checked="checked"' : '') . ' />'
+            . '<span class="description">recommended</span>'
+            . '</label></td>'
+            . '</tr>'
+            . '<tr valign="top">'
+            . '<th scope="row"><label for="popoverify_woo_category">Parse Woo category desc.</label></th>'
+            . '<td><label>'
+            . '<input type="checkbox" id="popoverify_woo_category" name="popoverify_woo_category" value="1"' . (get_option('popoverify_woo_category') == '1' ? ' checked="checked"' : '') . ' />'
+            . '<span class="description">recommended</span>'
+            . '</label></td>'
+            . '</tr>';
+        }
+
+        echo '</table>' . PHP_EOL;
 
         submit_button();
 
