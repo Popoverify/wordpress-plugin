@@ -62,9 +62,9 @@ if (!function_exists('popoverify_render_options_page')) {
         }
 
         echo '<div class="wrap">'
-        . '<h1><a href="https://www.popoverify.com/ref/1000" target="_blank"><img src="' . plugins_url('popoverify/public/images/logo.png') . '" style="max-width:300px;" /></a></h1>'
-        . '<p style="font-size:16px;">Your inline wiki and an easy way how to increase user experiance of your website. Popoverify allows you to <strong>connect glossary of terms directly to your website</strong> as contextual help on mouse over or on touch effect.</p>'
-        . '<p style="font-size:16px;">Don\'t have a Popoverify account yet? <a href="https://www.popoverify.com/ref/1000" target="_blank"><strong>Create new account</strong></a> and <strong>try it for FREE</strong>.</p>'
+        . '<h1><a href="https://www.popoverify.com/ref/1000?utm_medium=plugin&utm_source=wordpress&utm_campaign=v1" target="_blank"><img src="' . plugins_url('popoverify/public/images/logo.png') . '" style="max-width:300px;" /></a></h1>'
+        . '<p style="font-size:16px;">Your inline wiki and an easy way how to increase user experiance of your website. Popoverify allows you to create context help and connect it to your website with ease.</p>'
+        . '<p style="font-size:16px;">Don\'t have a Popoverify account yet? <a href="https://www.popoverify.com/ref/1000?utm_medium=plugin&utm_source=wordpress&utm_campaign=v1" target="_blank"><strong>Create new account</strong></a> and <strong>try it for FREE</strong>.</p>'
         . '<form method="post" action="options.php">';
 
         settings_fields('popoverify-settings');
@@ -78,7 +78,7 @@ if (!function_exists('popoverify_render_options_page')) {
         . '<th scope="row"><label for="popoverify_app">Application ID</label></th>'
         . '<td>'
         . '<input id="popoverify_app" type="text" name="popoverify_app" value="' . esc_attr(get_option('popoverify_app', '')) . '" />'
-        . '<p class="description">ID can be found under Applications in your <a href="https://www.popoverify.com/account">Popoverify account</a>.</p>'
+        . '<p class="description">ID can be found under Applications in your <a href="https://www.popoverify.com/account?ref=1000&utm_medium=plugin&utm_source=wordpress&utm_campaign=v1">Popoverify account</a>.</p>'
         . '</td>'
         . '</tr>'
         . '<tr valign="top">'

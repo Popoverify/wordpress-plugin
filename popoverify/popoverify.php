@@ -3,7 +3,7 @@
 /**
  * Plugin name: Popoverify
  * Plugin URI: https://github.com/Popoverify/wordpress-plugin
- * Description: <strong>Official plugin for integration with Popoverify</strong> - your inline wiki and an easy way how to improve user experience of your website which allows you to connect glossary of terms directly to your website as contextual help on mouse over or on touch effect.
+ * Description: <strong>Official plugin for integration with Popoverify</strong> - your inline wiki and an easy way how to improve user experience of your website. It allows you to create context help and connect it to your website with ease.
  * Version: 1.0.0
  * Author: Popoverify Ltd
  * Author URI: https://www.popoverify.com
